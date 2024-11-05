@@ -29,5 +29,14 @@ class Program
         {
             Console.WriteLine("Grade: F");
         }
+
+        if (percentage >= 70)
+        {
+            Console.WriteLine("Congratulations! You are passing.");
+        }
+        else
+        {
+            Console.WriteLine("Sorry, but you still have room for improvement. Better luck next time.");
+        }
     }
 }
