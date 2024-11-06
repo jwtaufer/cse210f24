@@ -9,3 +9,7 @@ mkdir foldername #makes a new folder ("make directory") in current folder
 touch filename.py #makes new file
 
 code -r filename.py #opens file (in vscode)
+
+F5 #run and debug C# program
+
+dotnet run filename.cs #run C# program
