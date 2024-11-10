@@ -32,7 +32,7 @@ class Program
 
     static double SquareNumber(int number)
     {
-        double squareNumber = Math.Pow(9,2);
+        double squareNumber = Math.Pow(number,2);
         return squareNumber;
     }
 

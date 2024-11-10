@@ -4,8 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Clear();
-
         Console.Write("What is your grade percentage? ");
         string userInput = Console.ReadLine();
 
@@ -45,7 +43,5 @@ class Program
             Console.WriteLine("Sorry, but you need at least a 'C' to pass this class. Better luck next semester.");
         }
 
-        Console.ReadLine();
-        Console.Clear();
     }
 }
