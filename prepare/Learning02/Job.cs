@@ -18,3 +18,5 @@ public class Job
         Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
     }
 }
+
+//Sample solution: https://github.com/byui-cse/cse210-ww-student-sample-solutions/tree/main/prepare/Learning02/Job.cs

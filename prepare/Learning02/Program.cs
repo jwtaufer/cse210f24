@@ -20,10 +20,11 @@ class Program
         job2.Display();
 
         Resume myResume = new Resume();
+        myResume._name = "Jake Taufer";
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
-
-        Console.WriteLine(myResume._jobs[0]._jobTitle);
-        Console.WriteLine(myResume._jobs[1]._jobTitle);
+        myResume.Display();
     }
 }
+
+//Sample solution: https://github.com/byui-cse/cse210-ww-student-sample-solutions/tree/main/prepare/Learning02/Program.cs
