@@ -11,7 +11,6 @@ class Program
         job1._startYear = 2017;
         job1._endYear = 2023;
         job1.Display();
-        // Console.WriteLine(job1._company);
 
         Job job2 = new Job();
         job2._company = "Schilders LLC";
@@ -19,6 +18,12 @@ class Program
         job2._startYear = 2024;
         job2._endYear = 2124;
         job2.Display();
-        // Console.WriteLine(job1._company);
+
+        Resume myResume = new Resume();
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);
+
+        Console.WriteLine(myResume._jobs[0]._jobTitle);
+        Console.WriteLine(myResume._jobs[1]._jobTitle);
     }
 }
