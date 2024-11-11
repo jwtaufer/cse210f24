@@ -13,8 +13,8 @@ public class Job
 
     }
 
-    // public void Display()
-    // {
-    //     Console.WriteLine($"Company: {_company}\nJob title: {_jobTitle}\nStart Year: {_startYear}\nEnd Year: {_endYear}");
-    // }
+    public void Display()
+    {
+        Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
+    }
 }

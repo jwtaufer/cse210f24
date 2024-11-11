@@ -10,15 +10,15 @@ class Program
         job1._jobTitle = "Painter";
         job1._startYear = 2017;
         job1._endYear = 2023;
-        // job1.Display();
-        Console.WriteLine(job1._company);
+        job1.Display();
+        // Console.WriteLine(job1._company);
 
         Job job2 = new Job();
         job2._company = "Schilders LLC";
         job2._jobTitle = "Owner";
         job2._startYear = 2024;
         job2._endYear = 2124;
-        // job2.Display();
-        Console.WriteLine(job1._company);
+        job2.Display();
+        // Console.WriteLine(job1._company);
     }
 }
