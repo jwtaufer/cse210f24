@@ -1,0 +1,27 @@
+@startuml journalProgram
+title Journal Program
+
+note "What does the program do?\nIt manages the journal by loading, saving, and writing \njournal entries. It also provides prompts for the user.\n\nWhat user inputs does it have?\nFile name, journal entry, menu selection.\n\nWhat output does it produce?\nGenerates a CSV file and displays text in the console.\n\nHow does the program end?\nBy selecting the 'exit' option in the main menu." as N1
+
+class Journal{
+    _entries:List<Entry>
+    DisplayJournal():void
+    SaveJournal():void
+    LoadJournal():string
+    AddEntry():string
+}
+
+class Entry{
+    _date:string
+    _prompt:string
+    _entryText:string
+    WriteEntry():string
+    SaveEntry():string
+    Display():void
+}
+
+class Prompt{
+    _prompts:List<string>
+    GeneratePrompt():string
+}
+@enduml
