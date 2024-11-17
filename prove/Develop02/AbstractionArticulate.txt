@@ -1,0 +1,25 @@
+What is abstraction and why is it important?
+
+Simply put, abstraction is taking something complex and making it simple. It is trimming out the non-essentials. One of the benefits of doing this is that it makes complex tasks easier. Classes are one way we do this. For example, in my Learning02 assignment this week, I created the following class:
+
+    public class Job
+    {
+        public string _company;
+        public string _jobTitle;
+        public int _startYear;
+        public int _endYear;
+
+        public Job()
+        {
+
+        }
+
+        public void Display()
+        {
+            Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
+        }
+    }
+
+Said class enables me to store information about a job I've had and then print it to the console. This is important because, without this class, I'd have to create variations of 'string _company' (and the others variables) for each job I've had. In addition, I'd have to write several variations of 'Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");' for every job I wanted printed. With this class. however, I only have to do it once. Each new instance of this class allows me to use the same few lines of code again and again, saving me a lot of time and headache.
+
+That said, abstraction is about more than just cutting down how much code I have to write. The creation of this function also makes it so that anyone else who might work on my project with me doesn't have to understand the inner workings of the class. All they have to do is use it. It's like flipping a light switch: you don't need to understand electrical to turn on the lights. 
