@@ -1,16 +1,14 @@
 using System;
 
-
 class Program
 {
     static void Main(string[] args)
     {
         bool programRunning = true;
+        Journal journal = new Journal();
 
         while (programRunning)
-        {    
-            Journal journal = new Journal();
-            
+        {                
             Console.Clear();
             Console.WriteLine("Select one of the following: ");
             Console.WriteLine("1. Write");
@@ -33,10 +31,12 @@ class Program
                     journal.DisplayJournal();
                     break;
                 case 3: //Load
-                    Console.WriteLine("Case 3");
+                    Console.Clear();
+                    journal.LoadJournal();
                     break;
                 case 4: //Save
-                    Console.WriteLine("Case 4");
+                    Console.Clear();
+                    journal.SaveJournal();
                     break;
                 case 5: //Quit
                     programRunning = false;
