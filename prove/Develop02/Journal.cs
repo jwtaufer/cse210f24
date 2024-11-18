@@ -1,4 +1,5 @@
 using System.IO;
+using System.Net;
 
 public class Journal
 {
@@ -20,36 +21,40 @@ public class Journal
 
     public void SaveJournal()
     {
-        Console.Write("Enter file name (e.g. filename.txt): ");
-        string fileName = Console.ReadLine();
+        Console.Write("Would you like to save? (Y/N): ");
+        string userInput = Console.ReadLine();
 
-        using (StreamWriter file = new StreamWriter(fileName))
-        {
-            foreach (Entry entry in _entries)
+        if (userInput.ToLower() == "y" || userInput.ToLower() == "yes")
+        {    
+            using (StreamWriter file = new StreamWriter("journal.txt"))
             {
-                file.WriteLine($"{entry._date}|{entry._prompt}|{entry._entry}");
+                foreach (Entry entry in _entries)
+                {
+                    file.WriteLine($"{entry._date}|{entry._prompt}|{entry._entry}");
+                }
             }
         }
     }
 
     public void LoadJournal()
     {
-        Console.Write("Enter the name of the file you'd like to load (e.g. filename.txt): ");
-        string fileName = Console.ReadLine();
-
-        string[] lines = System.IO.File.ReadAllLines(fileName);
-
-        foreach (string line in lines)
+        try
         {
-            string[] parts = line.Split("|");
+            string[] lines = System.IO.File.ReadAllLines("journal.txt");
 
-            Entry entry = new Entry();
-            entry._date = parts[0];
-            entry._prompt = parts[1];
-            entry._entry = parts [2];
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split("|");
 
-            _entries.Add(entry);
+                Entry entry = new Entry();
+                entry._date = parts[0];
+                entry._prompt = parts[1];
+                entry._entry = parts [2];
+
+                _entries.Add(entry);
+            }
         }
+        catch {}
     }
 
     public void AddEntry()

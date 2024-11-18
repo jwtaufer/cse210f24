@@ -1,3 +1,5 @@
+//I showed creativity and exceeded requirements by simplifying the main menu. To me, it was clunky. I'd rather have my journal automatically load, lest I forget to do it myself. I'd also likely forget to save before quitting. My solution for this was to modify the SaveJournal() function, then call it when the user chooses to quit. With these changes the user doesn't have to worry about typing in the right file name when they load or save, or loading their existing journal before they enter an entry.
+
 using System;
 
 class Program
@@ -7,15 +9,15 @@ class Program
         bool programRunning = true;
         Journal journal = new Journal();
 
+        journal.LoadJournal();
+
         while (programRunning)
         {                
             Console.Clear();
             Console.WriteLine("Select one of the following: ");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
-            Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("3. Quit");
 
             Console.Write("Input: ");
             int userInput = int.Parse(Console.ReadLine());
@@ -30,21 +32,12 @@ class Program
                     Console.Clear();
                     journal.DisplayJournal();
                     break;
-                case 3: //Load
-                    Console.Clear();
-                    journal.LoadJournal();
-                    break;
-                case 4: //Save
-                    Console.Clear();
+                case 3: //Quit
                     journal.SaveJournal();
-                    break;
-                case 5: //Quit
                     programRunning = false;
                     Console.Clear();
                     break;
             }
-
-            Console.WriteLine();
         }
     }
 }
