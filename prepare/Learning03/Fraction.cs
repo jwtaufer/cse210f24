@@ -1,4 +1,4 @@
-using System.Dynamic;
+using System;
 
 public class Fraction
 {
@@ -23,23 +23,33 @@ public class Fraction
         _bottom = bottom;
     }
 
-    public void SetTop(int top)
+    // public void SetTop(int top)
+    // {
+    //     _top = top;
+    // }
+
+    // public int GetTop()
+    // {
+    //     return _top;
+    // }
+
+    // public void SetBottom(int bottom)
+    // {
+    //     _bottom = bottom;
+    // }
+
+    // public  int GetBottom()
+    // {
+    //     return _bottom;
+    // }
+
+    public string GetFractionString()
     {
-        _top = top;
+        return $"{_top}/{_bottom}";
     }
 
-    public int GetTop()
+    public double GetDecimalValue()
     {
-        return _top;
-    }
-
-    public void SetBottom(int bottom)
-    {
-        _bottom = bottom;
-    }
-
-    public  int GetBottom()
-    {
-        return _bottom;
+        return (double)_top / (double)_bottom;   
     }
 }
