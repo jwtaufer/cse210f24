@@ -1,3 +1,5 @@
+using System.Dynamic;
+
 public class Fraction
 {
     private int _top;
@@ -19,5 +21,25 @@ public class Fraction
     {
         _top = top;
         _bottom = bottom;
+    }
+
+    public void SetTop(int top)
+    {
+        _top = top;
+    }
+
+    public int GetTop()
+    {
+        return _top;
+    }
+
+    public void SetBottom(int bottom)
+    {
+        _bottom = bottom;
+    }
+
+    public  int GetBottom()
+    {
+        return _bottom;
     }
 }
