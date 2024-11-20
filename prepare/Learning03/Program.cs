@@ -34,6 +34,6 @@ class Program
 
         Fraction test8 = new Fraction(1, 3);
         Console.WriteLine(test8.GetFractionString());
-        Console.WriteLine(test5.GetDecimalValue());
+        Console.WriteLine(test8.GetDecimalValue());
     }
 }
