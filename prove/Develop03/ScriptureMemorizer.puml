@@ -1,0 +1,45 @@
+@startuml ScriptureMemorizer
+
+title Scripture Memorizer
+
+note "What does the program do?\nSimply put, the program helps you memorize a scripture.\n\nWhat user inputs does it have?\nUser can select menu items to play the game, or press \n'enter' to continue play and type 'quit' to exit.\n\nWhat output does it produce?\nConsole shows scripture to be memorized and hides \ngroups of letters one at a time. Also displays menu for \nselecting scripture to memorize.\n\nHow does the program end?\nProgram ends when user types 'quit' or finishes the game." as Step4
+
+class Scripture
+{
+    _reference:Reference
+    _words:List<Word>
+    
+    Scripture(Reference:Reference, text:string)
+    
+    HideRandomWords(numberToHide:int):void
+    GetDisplayText():string
+    IsCompletelyHidden():bool
+}
+
+class Reference
+{
+    Reference(book:string, chapter:int, verse:int)
+    Reference(book:string, chapter:int, startVerse\n:int, endVerse:int)
+
+    GetDisplayText():string
+
+    _book:string
+    _chapter:int
+    _verse:int
+    _endVerse:int
+}
+
+class Word
+{
+    Word(text:string)
+
+    Hide():void
+    Show():void
+    IsHidden():bool
+    GetDisplayText():string
+
+    _text:string
+    _isHidden:bool
+}
+
+@enduml
