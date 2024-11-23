@@ -1,7 +1,7 @@
 class Scripture
 {
-    private Reference _reference = new Reference();
-    private List<Word> _words = new Word();
+    private Reference _reference;
+    private List<Word> _words;
 
     public Scripture(Reference Reference, string text)
     {
@@ -20,6 +20,6 @@ class Scripture
 
     public bool IsCompletelyHidden()
     {
-        
+
     }
 }
