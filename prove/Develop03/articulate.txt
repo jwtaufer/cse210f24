@@ -1,0 +1,52 @@
+ What is encapsulation and why is it important? 
+
+ To encapsulate is to enclose, or contain. In programming, that means restricting access of certain parts of your program from other parts. You might do this by creating a class, making parts of that class private, or inaccessible, and creating public methods in that class that allow for limited access to the parts within. One of the benefits of doing this is that it makes it harder for other parts of your code to break said class, and vice versa. Consider my "Word" class from my "Develop03" assignment:
+
+    using System.Runtime.InteropServices;
+
+    public class Word
+    {
+        private string _text;
+        private bool _isHidden;
+
+        public Word(string text)
+        {
+            _text = text;
+        }
+
+        public void Hide()
+        {
+            _isHidden = true;
+        }
+
+        public void Show()
+        {
+            _isHidden = false;
+        }
+
+        public bool IsHidden()
+        {
+            return _isHidden;
+        }
+
+        public string GetDisplayText()
+        {
+            if(_isHidden)
+            {
+                string text = "";
+
+                foreach(char letter in _text)
+                {
+                    text += "_";
+                }
+
+                return text;
+            }
+            else
+            {
+                return _text;
+            }
+        }
+    }
+ 
+ In this class, the variables "_text" and "_isHidden" can only be modified using the "Word()" constructor, or the "Hide()" and "Show()" methods. This is because those attributes are marked "private." Likewise, they can only be called using "IsHidden()" and "GetDisplayText()" methods. This way, the member variables can only be used as intended by the class, making it harder to break the program.
