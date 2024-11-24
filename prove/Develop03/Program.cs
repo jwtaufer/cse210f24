@@ -34,6 +34,6 @@ class Program
                 scripture.HideRandomWords(5);
             }
         }
-        Console.Clear();
+        // Console.Clear();
     }
 }
