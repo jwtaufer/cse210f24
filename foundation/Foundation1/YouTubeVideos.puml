@@ -1,0 +1,42 @@
+@startuml Foundations1
+
+title Abstraction with YouTube Videos
+
+note as Step3
+ What does the program do?
+ Keeps track ot YouTube videos and comments left on them.
+ 
+ What are candidates for classes?
+ Video and Comment.
+ 
+ What are the responsibilities of each class?
+ Video class: track title, author, and video length, and store a list of comments.
+ Comment class: tracking name of commenter, and comment text.
+end note
+
+class Video
+{
+    -_title:string
+    -_author:string
+    -_videoLengthPerSecond:int
+    -_comments:List<Comment>
+
+    +Video(title:string, author:string, length:string, comments:List<Comment>)
+
+    -CountComments(Comment:Comment):int
+    +DisplayVideo():void
+}
+
+class Comment
+{
+    -_commentAuthor:string
+    -_commentText:string
+
+    +Comment(author:string, text:string)
+
+    +ReturnComment():string
+}
+
+Video "one" <-- "many" Comment : contains
+
+@enduml
