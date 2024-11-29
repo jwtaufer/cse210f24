@@ -1,0 +1,56 @@
+@startuml Foundations2
+
+title Encapsulation with Online Ordering
+
+class Order
+{
+    _products:List<Product>
+    _customer:Customer
+
+    Order(Product:Product, Customer:Customer)
+
+    CalculateCost():float
+    ReturnPackingLabel(Order:Order):string
+    ReturnShippingLabel(Customer:Customer):string
+}
+
+class Product
+{
+    _name:string
+    _id:string
+    _price:float
+    _quantity:int
+
+    Product(name:string, id:string, price:float, quantity:float)
+
+    CalculateProductPrice():float
+}
+
+class Customer
+{
+    _name:string
+    _address:Address
+
+    Customer(name:string, Address:Address)
+
+    IsUsa(Address:Address):bool
+}
+
+class Address
+{
+    _streetAddress:string
+    _city:string
+    _stateOrProvince:string
+    _country:string
+
+    Address(streetAddress:string, city:string, stateOrProvince:string, country:string)
+
+    IsUsa():bool
+    ReturnAddress():string
+}
+
+Order <-- Product
+Order <-- Customer
+Customer <-- Address
+
+@enduml
