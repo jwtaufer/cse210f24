@@ -38,7 +38,7 @@ public class Order
             shippingCost = 35;
         }
 
-        return totalCost + shippingCost;
+        return Math.Round(totalCost + shippingCost, 2);
     }
 
     public void DisplayPackingLabel()

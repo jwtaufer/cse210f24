@@ -38,5 +38,49 @@ class Program
 
         Console.WriteLine("Shipping Label: ");
         jake.DisplayShippingLabel();
+
+        Order lis = new Order(
+            "Lis",
+            "1095 Nalder St",
+            "Layton",
+            "UT",
+            "USA"
+        );
+
+        lis.AddProduct(
+            "Nintendo New Super Mario Bros. Wii (Renewed)",
+            "MR10",
+            39.99,
+            1
+        );
+
+        lis.AddProduct(
+            "Young Sheldon: The Complete Series (Blu-ray)",
+            "BLUSH",
+            107.87,
+            1
+        );
+
+        lis.AddProduct(
+            "The Shadow of What Was Lost (The Licanius Trilogy, 1) Paperback",
+            "BOOK1",
+            19.99,
+            1
+        );
+
+        Console.WriteLine();
+
+        Console.WriteLine($"Total Cost: ${lis.CalculateCost()}");
+
+        Console.WriteLine();
+
+        Console.WriteLine("Packing Label: ");
+        lis.DisplayPackingLabel();
+
+        Console.WriteLine();
+
+        Console.WriteLine("Shipping Label: ");
+        lis.DisplayShippingLabel();
+
     }
 }
