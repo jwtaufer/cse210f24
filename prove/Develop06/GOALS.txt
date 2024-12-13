@@ -1,0 +1,4 @@
+50
+SimpleGoal|Shovel Driveway|the whole thing|50|False
+EternalGoal|Sleep|Get a full nights sleep|20
+ChecklistGoal|Check my temper|be patient with my kids|50|1|7|500

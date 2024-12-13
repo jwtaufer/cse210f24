@@ -1,0 +1,38 @@
+@startuml Eternal Quest
+
+title Eternal Quest
+
+note "What does the program do?\nKeep track of people's goals, and the progress they make \ntowards those goals. It 'gamifies' goal setting \n\nWhat user inputs does it have?\nNew goals, record events, load saved goals \n\nWhat output does it produce?\nDisplay user score, list goals, save goals  \n\nHow does the program end?\nEnd if user completes all goals and show items completed" as note1
+
+class Goal{
+    _points:int
+
+    Goal()
+
+    DisplayScore():void
+    CreateGoal():string
+    RecordEvent():string
+    ShowGoalList():List<string>
+}
+
+class SimpleGoal{
+
+}
+
+class EternalGoal{
+
+}
+
+class ChecklistGoal{
+
+}
+
+class GoalManager{
+
+}
+
+Goal <|-- SimpleGoal
+Goal <|-- EternalGoal
+Goal <|-- ChecklistGoal
+
+@enduml
