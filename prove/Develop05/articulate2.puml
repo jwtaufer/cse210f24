@@ -1,0 +1,48 @@
+@startuml figure 2
+
+Title: Figure 2
+
+class Activity{
+    _name:string
+    _description:string
+    _duration:int
+
+    Activity()
+    DisplayStartingMessage():void
+    DisplayEndingMessage():void
+    ShowSpinner(seconds:int):void
+    ShowCountDown(seconds:int):void
+}
+
+class BreathingActivity{
+    BreathingActivity()
+    Run():void
+}
+
+class ListingActivity{
+    _count:int
+    _prompts:List<string>
+
+    ListingActivity()
+    Run():void
+    GetRandomPrompt():void
+    GetListFromUser():List<string>
+}
+
+class ReflectingActivity{
+    _prompts:List<string>
+    _questions:List<string>
+
+    ReflectingActivity()
+    Run():void
+    GetRandomPrompt():string
+    GetRandomQuestion():string
+    DisplayPrompt():void
+    DisplayQuestions():void
+}
+
+Activity <|-- BreathingActivity
+Activity <|-- ListingActivity
+Activity <|-- ReflectingActivity
+
+@enduml

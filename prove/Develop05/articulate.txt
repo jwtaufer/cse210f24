@@ -1,0 +1,7 @@
+What is inheritance and why is it important? 
+
+Inheritance is when one class can directly use the attributes and methods of another class. They have a sort of parent/child relationship, where the child "inherits" the attributes and methods of the parent. This is beneficial because it allows code to be reused rather than retyped. For example, consider figure 1:
+
+Here, there are three different classes, and within each are some common attributes (i.e. _name, _description, _duration) and methods (i.e. DisplayStartingMessage(), DisplayEndingMessage(), ShowSpinner(), ShowCountDown()). These could be copied and pasted into each new class, which should have us asking ourselves, is there a better way? There is, in figure 2:
+
+In Figure 2, common attributes and methods have been aggregated into a single parent class: Activity. Instatiating a child class (e.g. BreathingActivity) will still give us access to our Activity class attributes and methods, and the program will achieve the same end result as our Figure 1 program, but it will easier to build and the code will be cleaner.

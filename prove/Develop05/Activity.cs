@@ -1,6 +1,6 @@
 using System.Reflection;
 
-public class Activity
+public abstract class Activity
 {
     protected string _name;
     protected string _description;

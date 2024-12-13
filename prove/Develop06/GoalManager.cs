@@ -1,15 +1,21 @@
+using System;
 using System.Runtime.CompilerServices;
 using System.IO;
+using System.Collections;
+using System.Net;
+using System.Formats.Asn1;
 
 public class GoalManager
 {
     private List<Goal> _goals;
     private int _score;
+    private List<string> _files;
 
     public GoalManager()
     {
         _goals = new List<Goal>();
         _score = 0;
+        _files = new List<string>();
     }
 
     public void Start()
@@ -68,7 +74,7 @@ public class GoalManager
 
         foreach(Goal goal in _goals)
         {
-            Console.WriteLine($"{i}. {goal.GetShortName()}");
+            Console.WriteLine($"    {i}. {goal.GetShortName()}");
             i++;
         }
     }
@@ -79,7 +85,7 @@ public class GoalManager
 
         foreach (Goal goal in _goals)
         {
-            Console.WriteLine($"{i}. {goal.GetDetailsString()}");
+            Console.WriteLine($"    {i}. {goal.GetDetailsString()}");
             i++;
         }
     }
@@ -142,10 +148,33 @@ public class GoalManager
 
     private void SaveGoals()
     {
-        Console.Write("What is the filename for the goal file? ");
-        string filename = Console.ReadLine();
+        Console.WriteLine("Saved files: ");
+        ShowFiles();
+        int cancel = _files.Count() + 1;
 
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        Console.WriteLine($"    {cancel}. Cancel");
+        
+        Console.Write("Select a file to save to over, or enter a new filename: ");
+        string userInput = Console.ReadLine();
+
+        string filename;
+        if (Char.IsNumber(userInput, 0))
+        {
+            if (int.Parse(userInput) == cancel)
+            {
+                return;
+            }
+            else
+            {
+                filename = _files[int.Parse(userInput) - 1];
+            }
+        }
+        else
+        {
+            filename = userInput;
+        }
+
+        using (StreamWriter outputFile = new StreamWriter($"saves/{filename}"))
         {
             outputFile.WriteLine(_score);
 
@@ -158,10 +187,27 @@ public class GoalManager
 
     private void LoadGoals()
     {
-        Console.Write("What is the filename for the goal file? ");
-        string filename = Console.ReadLine();
+        Console.WriteLine("Loadable files: ");
+        ShowFiles();
+        int cancel = _files.Count() + 1;
+        Console.WriteLine($"    {cancel}. Cancel");
+        
+        Console.Write("Select a file:  ");
+        int userInput = int.Parse(Console.ReadLine());
 
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        if (userInput == cancel)
+        {
+            return;
+        }
+        else
+        {
+            _goals.Clear();
+            _score = 0;
+        }
+
+        int i = userInput - 1;
+
+        string[] lines = System.IO.File.ReadAllLines($"saves/{_files[i]}");
 
         foreach (string line in lines)
         {
@@ -187,6 +233,24 @@ public class GoalManager
             {
                 _score = int.Parse(parts[0]);
             }
+        }
+    }
+
+    private void ShowFiles()
+    {
+        int i = 1;
+
+        _files.Clear();
+
+        string[] files = Directory.GetFiles("saves/", "*txt");
+
+        foreach (string file in files)
+        {
+            string[] parts = file.Split("/");
+
+            _files.Add(parts[1]);
+            Console.WriteLine($"    {i}. {parts[1]}");
+            i++;
         }
     }
 }

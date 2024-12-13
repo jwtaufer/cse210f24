@@ -1,0 +1,51 @@
+@startuml example 1
+Title: Figure 1
+class BreathingActivity{
+    _name:string
+    _description:string
+    _duration:int
+
+    BreathingActivity()
+    DisplayStartingMessage():void
+    DisplayEndingMessage():void
+    ShowSpinner(seconds:int):void
+    ShowCountDown(seconds:int):void
+    Run():void
+}
+
+class ListingActivity{
+    _name:string
+    _description:string
+    _duration:int
+    _count:int
+    _prompts:List<string>
+
+    ListingActivity()
+    DisplayStartingMessage():void
+    DisplayEndingMessage():void
+    ShowSpinner(seconds:int):void
+    ShowCountDown(seconds:int):void
+    Run():void
+    GetRandom:Prompt():void
+    GetListFromUser():List<string>
+}
+
+class ReflectingActivity{
+    _name:string
+    _description:string
+    _duration:int
+    _prompts:List<string>
+    _questions:List<string>
+
+    ReflectingActivity()
+    DisplayStartingMessage():void
+    DisplayEndingMessage():void
+    ShowSpinner(seconds:int):void
+    ShowCountDown(seconds:int):void
+    Run():void
+    GetRandomPrompt():string
+    GetRandomQuestion():string
+    DisplayPrompt():void
+    DisplayQuestions():void
+}
+@enduml
