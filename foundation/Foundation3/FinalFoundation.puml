@@ -1,0 +1,44 @@
+@startuml final foundation
+
+title Final Foundation
+
+abstract class Activity
+{
+    -_date:string
+    -_lengthInMinutes:string
+
+    +Activity():void
+    +CalculateDistance():double
+    +CalculateSpeed():double
+    +CalculatePace():double
+    +GetSummary():string
+}
+
+note right of Activity : GetSummary() format: \n\n03 Nov 2022 Running (30 min)- \nDistance 3.0 miles, Speed 6.0 mph, \nPace: 10.0 min per mile
+
+class Running
+{
+    -_distance:double
+
+    +Running():void
+}
+
+class Cycling
+{
+    -_speed:double
+
+    +Cycling():void
+}
+
+class Swimming
+{
+    -_numberOfLaps:double
+
+    +Swimming():void
+}
+
+Activity <|-- Running
+Activity <|-- Cycling
+Activity <|-- Swimming
+
+@enduml
